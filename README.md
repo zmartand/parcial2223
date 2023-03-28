@@ -118,6 +118,10 @@ el atributo is_alive. Este atributo sirve para saber si el usuario aún está vi
 • Programe el método die(self) de la clase Usuario. Este método set se utiliza para establecer el
 atributo alive en False. De esta forma, es posible matar al usuario.
 • Pruebe los objetos de la clase Usuario con los test cases que se le han pasado.
+
+![Diagrama](https://github.com/zmartand/parcial2223/blob/master/diagramaej4.png
+)
+
 Nota:
 - La diferencia en el Battleship, la frigate y la canoe con el Ship es la forma de ser atacado y el
 tamaño fijo de cada uno de ellos.
