@@ -34,4 +34,18 @@ métodos que no sean el constructor.
 5) En el paradigma de la programación orientado a objetos:  
 a) Se recomienda que las acciones estén lo más acopladas posibles al código para  
 obtener el mayor rendimiento posible.  
-**b) Se favorece la semántica y la reutilización de código en detrimento del rendimiento.**  
+**b) Se favorece la semántica y la reutilización de código en detrimento del rendimiento.** 
+
+## Ejercicio 2  
+¿Cuáles son las características de la programación orientada a objetos?  
+
+__Abstracción: La abstracción es la capacidad de representar objetos del mundo real mediante clases que definen sus características y comportamientos esenciales, y ocultan los detalles irrelevantes.
+(Convertir la realidad a código)__
+
+__Encapsulamiento: El encapsulamiento es la forma en que la POO protege los datos y métodos de un objeto agrupándolos en una unidad coherente y limitando su acceso a través de niveles de acceso.__
+
+__Herencia: La herencia es la forma en que la POO permite crear nuevas clases a partir de clases existentes, y reutilizar código y comportamientos comunes en diferentes objetos.__
+
+__Polimorfismo: El polimorfismo es la capacidad de la POO de crear métodos con el mismo nombre pero comportamientos diferentes en función de la clase del objeto que lo llama, lo que permite una mayor flexibilidad y adaptabilidad en la programación.__
+
+__Clases y objetos: Las clases son plantillas que definen la estructura y el comportamiento de los objetos. Los objetos son instancias de una clase y representan elementos del mundo real con sus propias características y comportamientos.__
