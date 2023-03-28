@@ -1,7 +1,7 @@
 # PARCIAL 2223
 ## Nota
 Mi repositorio es: 
-
+https://github.com/zmartand/parcial2223.git
 ## EJERCICIOS
 
 ### EJERCICIO 1
