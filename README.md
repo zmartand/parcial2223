@@ -162,6 +162,9 @@ Recuerde utilizar las clases implementadas tanto en el ejercicio 4 como en el ej
 implementar todos los componentes de este juego.
 El diagrama de flujo de este módulo principal le ha sido proporcionado a modo de guía.
 
+![Diagrama](https://github.com/zmartand/parcial2223/blob/master/diagramaej6.png)
+
+
 - La acción One User attacks es realmente el ataque secuencial de User1 a user2 y de user2 a
 user1 (o viceversa).
 
