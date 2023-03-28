@@ -49,3 +49,17 @@ __Herencia: La herencia es la forma en que la POO permite crear nuevas clases a 
 __Polimorfismo: El polimorfismo es la capacidad de la POO de crear métodos con el mismo nombre pero comportamientos diferentes en función de la clase del objeto que lo llama, lo que permite una mayor flexibilidad y adaptabilidad en la programación.__
 
 __Clases y objetos: Las clases son plantillas que definen la estructura y el comportamiento de los objetos. Los objetos son instancias de una clase y representan elementos del mundo real con sus propias características y comportamientos.__
+
+## Ejercicio 3  
+¿Qué es la visibilidad de una variable o un método? ¿Qué tipos hay? ¿Cuándo debe utilizarse cada tipo?  
+__La visibilidad de una variable o un método se refiere a quién puede acceder y modificar esos datos o comportamientos dentro del programa. En Java, hay cuatro tipos de visibilidad: público, privado, protegido y paquete.__
+
+__-Público: cualquier clase o paquete puede acceder a un miembro público.__
+
+__-Privado: solo la misma clase puede acceder a un miembro privado.__
+
+__-Protegido: la misma clase y las clases derivadas (herencia) y del mismo paquete pueden acceder a un miembro protegido.__
+
+__-Paquete o por defecto: solo las clases del mismo paquete pueden acceder a un miembro sin especificar una visibilidad.__
+
+
