@@ -14,7 +14,7 @@ La calificación máxima de esta parte tipo test es de 1 punto. Tenga en cuenta 
 
 1) Los elementos que definen a un objeto son:  
 a) El tipo de visibilidad que tiene asignado: privado o público.  
-b) <span style="color:blue;">La identidad, Los atributos que representan su estado y los métodos que representan su comportamiento </span>  
+<span style="color:blue;"> b) La identidad, Los atributos que representan su estado y los métodos que representan su comportamiento</span>  
 
 2) El hecho de que un método pueda recibir un número variable de atributos se denomina:  
 a) Herencia  
