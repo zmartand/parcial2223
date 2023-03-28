@@ -28,9 +28,8 @@ a) Primero el constructor de C, luego constructor de B y, finalmente, el constru
 4) Para referenciar los atributos de un objeto en un método de la misma clase  
 **a) Debo utilizar la palabra reservada self como prefijo**  
 b) Los atributos deben ser públicos, en caso contrario no se pueden referenciar desde
-métodos que no sean el constructor.étodos que no sean el constructor.étodos que no
-sean el constructor.  
-**Comentario para este apartado: palabra reservada THIS**
+métodos que no sean el constructor.
+**Comentario para este ejercicio: palabra reservada THIS**
 
 5) En el paradigma de la programación orientado a objetos:  
 a) Se recomienda que las acciones estén lo más acopladas posibles al código para  
