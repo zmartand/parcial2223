@@ -118,6 +118,10 @@ el atributo is_alive. Este atributo sirve para saber si el usuario aún está vi
 • Programe el método die(self) de la clase Usuario. Este método set se utiliza para establecer el
 atributo alive en False. De esta forma, es posible matar al usuario.
 • Pruebe los objetos de la clase Usuario con los test cases que se le han pasado.
+
+![Diagrama](https://github.com/zmartand/parcial2223/blob/master/diagramaej4.png
+)
+
 Nota:
 - La diferencia en el Battleship, la frigate y la canoe con el Ship es la forma de ser atacado y el
 tamaño fijo de cada uno de ellos.
@@ -157,6 +161,9 @@ barcos están hundidos.
 Recuerde utilizar las clases implementadas tanto en el ejercicio 4 como en el ejercicio 5 para
 implementar todos los componentes de este juego.
 El diagrama de flujo de este módulo principal le ha sido proporcionado a modo de guía.
+
+![Diagrama](https://github.com/zmartand/parcial2223/blob/master/diagramaej6.png)
+
 
 - La acción One User attacks es realmente el ataque secuencial de User1 a user2 y de user2 a
 user1 (o viceversa).
