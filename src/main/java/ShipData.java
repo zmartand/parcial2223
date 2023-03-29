@@ -19,7 +19,8 @@ public class ShipData {
     HashMap<String, LinkedList<ShipData>> tableByType = new HashMap<>();
     HashMap<Integer, ShipData> tableByNumber = new HashMap<>(15);
     HashMap<String, ShipData> tableByName = new HashMap<>();
-    
+    /*Para manejar colisiones en la primera tabla, estamos usando LinkedList<ShipData> como valor.
+    El tamaño de la primera tabla es dinámico porque está utilizando un HashMap en Java*/
 
 
 
