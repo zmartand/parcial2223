@@ -1,64 +1,64 @@
 import java.awt.*;
 public class Ship {
-    private Point puntoInicial;
-    private Point puntoFinal;
-    private double tamanio;
-    private int golpes;
-    private CardinalPoints direccion;
+    private Point startPoint;
+    private Point endPoint;
+    private double size;
+    private int hits;
+    private CardinalPoints direction;
 
-    public Ship(Point puntoInicial, Point puntoFinal) {
-        this.puntoInicial = puntoInicial;
-        this.puntoFinal = puntoFinal;
-        this.direccion = calculateDirection(puntoInicial, puntoFinal);
-        this.tamanio = calcularTamanio(puntoInicial, puntoFinal);
-        this.golpes = 0;
+    public Ship(Point startPoint, Point endPoint) {
+        this.startPoint = startPoint;
+        this.endPoint = endPoint;
+        this.direction = calculateDirection(startPoint, endPoint);
+        this.size = calculateSize(startPoint, endPoint);
+        this.hits = 0;
     }
 
-    public Point getPuntoInicial() {
-        return puntoInicial;
+    public Point getStartPoint() {
+        return startPoint;
     }
 
-    public Point getPuntoFinal() {
-        return puntoFinal;
+    public Point getEndPoint() {
+        return endPoint;
     }
 
-    public double getTamanio() {
-        return tamanio;
+    public double getSize() {
+        return size;
     }
 
-    public CardinalPoints getDireccion() {
-        return direccion;
+    public CardinalPoints getDirection() {
+        return direction;
     }
 
-    public boolean estaHundido() {
-        return golpes == tamanio;
+    public boolean isSunk() {
+        return hits == size;
     }
 
     public void getShot(Point shotPoint) {
         if (isPointInsideShip(shotPoint)) {
-            golpes++;
+            hits++;
         }
     }
 
-    private CardinalPoints calculateDirection(Point puntoInicial, Point puntoFinal) {
-        if (puntoInicial.getX() == puntoFinal.getX()) {
-            return (puntoInicial.getY() < puntoFinal.getY()) ? CardinalPoints.NORTH : CardinalPoints.SOUTH;
+    private CardinalPoints calculateDirection(Point startPoint, Point endPoint) {
+        if (startPoint.getX() == endPoint.getX()) {
+            return (startPoint.getY() < endPoint.getY()) ? CardinalPoints.NORTH : CardinalPoints.SOUTH;
         } else {
-            return (puntoInicial.getX() < puntoFinal.getX()) ? CardinalPoints.EAST : CardinalPoints.WEST;
+            return (startPoint.getX() < endPoint.getX()) ? CardinalPoints.EAST : CardinalPoints.WEST;
         }
     }
 
-    private double calcularTamanio(Point puntoInicial, Point puntoFinal) {
-        return Math.max(Math.abs(puntoInicial.getX() - puntoFinal.getX()), Math.abs(puntoInicial.getY() - puntoFinal.getY())) + 1;
+    private double calculateSize(Point startPoint, Point endPoint) {
+        return Math.max(Math.abs(startPoint.getX() - endPoint.getX()), Math.abs(startPoint.getY() - endPoint.getY())) + 1;
     }
 
     private boolean isPointInsideShip(Point shotPoint) {
         double x = shotPoint.getX();
         double y = shotPoint.getY();
-        double startX = puntoInicial.getX();
-        double startY = puntoInicial.getY();
-        double endX = puntoFinal.getX();
-        double endY = puntoFinal.getY();
+        double startX = startPoint.getX();
+        double startY = startPoint.getY();
+        double endX = endPoint.getX();
+        double endY = endPoint.getY();
         return (x >= startX && x <= endX && y >= startY && y <= endY);
     }
 }
