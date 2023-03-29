@@ -1,86 +1,68 @@
 import java.awt.*;
-
 public class Ship {
-    private Point inicio;
-    private Point fin;
+    private Point puntoInicial;
+    private Point puntoFinal;
     private double tamanio;
     private int golpes;
-    private boolean hundido;
+    private CardinalPoints direccion;
 
-    public Ship(Point inicio, Point fin) {
-        this.inicio = inicio;
-        this.fin = fin;
-        this.tamanio = Math.max(Math.abs(fin.getX() - inicio.getX()), Math.abs(fin.getY() - inicio.getY())) + 1;
+    public Ship(Point puntoInicial, Point puntoFinal) {
+        this.puntoInicial = puntoInicial;
+        this.puntoFinal = puntoFinal;
+        this.direccion = calculateDirection(puntoInicial, puntoFinal);
+        this.tamanio = calcularTamanio(puntoInicial, puntoFinal);
         this.golpes = 0;
-        this.hundido = false;
     }
 
-    public Point getStart() {
-        return inicio;
+    public Point getPuntoInicial() {
+        return puntoInicial;
     }
 
-    public void setStart(Point start) {
-        this.inicio = start;
+    public Point getPuntoFinal() {
+        return puntoFinal;
     }
 
-    public Point getEnd() {
-        return fin;
-    }
-
-    public void setEnd(Point end) {
-        this.fin = end;
-    }
-
-    public double getSize() {
+    public double getTamanio() {
         return tamanio;
     }
 
-    public int getHitCount() {
-        return golpes;
+    public CardinalPoints getDireccion() {
+        return direccion;
     }
 
-    public boolean isSunk() {
-        return hundido;
+    public boolean estaHundido() {
+        return golpes == tamanio;
     }
 
-    public void getShot(Point shot_point) {
-        if (isOnShip(shot_point)) {
+    public void getShot(Point shotPoint) {
+        if (isPointInsideShip(shotPoint)) {
             golpes++;
-            if (golpes == tamanio) {
-                hundido = true;
-            }
         }
     }
 
-    private boolean isOnShip(Point p) {
-        if (p.getX() >= inicio.getX() && p.getX() <= fin.getX() && p.getY() >= inicio.getY() && p.getY() <= fin.getY()) {
-            if (inicio.getX() == fin.getX()) {
-                return true;
-            } else {
-                return false;
-            }
-        } else if (p.getX() >= inicio.getX() && p.getX() <= fin.getX() && p.getY() <= inicio.getY() && p.getY() >= fin.getY()) {
-            if (inicio.getX() == fin.getX()) {
-                return true;
-            } else {
-                return false;
-            }
-        } else if (p.getY() >= inicio.getY() && p.getY() <= fin.getY() && p.getX() <= inicio.getX() && p.getX() >= fin.getX()) {
-            if (inicio.getY() == fin.getY()) {
-                return true;
-            } else {
-                return false;
-            }
-        } else if (p.getY() >= inicio.getY() && p.getY() <= fin.getY() && p.getX() >= inicio.getX() && p.getX() <= fin.getX()) {
-            if (inicio.getY() == fin.getY()) {
-                return true;
-            } else {
-                return false;
-            }
+    private CardinalPoints calculateDirection(Point puntoInicial, Point puntoFinal) {
+        if (puntoInicial.getX() == puntoFinal.getX()) {
+            return (puntoInicial.getY() < puntoFinal.getY()) ? CardinalPoints.NORTH : CardinalPoints.SOUTH;
         } else {
-            return false;
+            return (puntoInicial.getX() < puntoFinal.getX()) ? CardinalPoints.EAST : CardinalPoints.WEST;
         }
+    }
+
+    private double calcularTamanio(Point puntoInicial, Point puntoFinal) {
+        return Math.max(Math.abs(puntoInicial.getX() - puntoFinal.getX()), Math.abs(puntoInicial.getY() - puntoFinal.getY())) + 1;
+    }
+
+    private boolean isPointInsideShip(Point shotPoint) {
+        double x = shotPoint.getX();
+        double y = shotPoint.getY();
+        double startX = puntoInicial.getX();
+        double startY = puntoInicial.getY();
+        double endX = puntoFinal.getX();
+        double endY = puntoFinal.getY();
+        return (x >= startX && x <= endX && y >= startY && y <= endY);
     }
 }
+
+
 
 
