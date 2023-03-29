@@ -3,7 +3,6 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Random;
 
-
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -34,29 +33,32 @@ public class Main {
 
         // Mostrar el ganador
         if (user1.isAlive() && !user2.isAlive()) {
-            // Mostrar el ganador
-            if (user1.isAlive() && !user2.isAlive()) {
-                System.out.println("¡El Usuario 1 ha ganado!");
-            } else if (!user1.isAlive() && user2.isAlive()) {
-                System.out.println("¡El Usuario 2 ha ganado!");
-            } else {
-                System.out.println("¡Empate!");
-            }
+            System.out.println("¡El Usuario 1 ha ganado!");
+        } else if (!user1.isAlive() && user2.isAlive()) {
+            System.out.println("¡El Usuario 2 ha ganado!");
+        } else {
+            System.out.println("¡Empate!");
         }
     }
 
-        private static ArrayList<Ship> getUserShips(Scanner scanner) {
-            ArrayList<Ship> ships = new ArrayList<>();
-            for (int i = 0; i < 3; i++) {
-                System.out.println("Introduzca el tipo de barco (Battleship, Frigate, Canoe), punto de inicio y punto final (x1 y1 x2 y2):");
-                String shipType = scanner.next();
-                int x1 = scanner.nextInt();
+    private static ArrayList<Ship> getUserShips(Scanner scanner) {
+        ArrayList<Ship> ships = new ArrayList<>();
+
+        System.out.println("Tienes un máximo de 3 barcos en total, uno de cada tipo:");
+        System.out.println("Battleship: 5 casillas, Frigate: 3 casillas, Canoe: 1 casilla");
+        System.out.println("Ingresa las coordenadas de inicio y fin para cada barco o escribe 'no' si no deseas ese tipo de barco.");
+
+        for (String shipType : new String[]{"Battleship", "Frigate", "Canoe"}) {
+            System.out.println("Punto inicial y punto final del " + shipType + " en formato x1 y1 x2 y2 ej(3 2 2 6), o 'no' si no deseas este tipo de barco:");
+
+            String input = scanner.next();
+            if (!input.equalsIgnoreCase("no")) {
+                int x1 = Integer.parseInt(input);
                 int y1 = scanner.nextInt();
                 int x2 = scanner.nextInt();
                 int y2 = scanner.nextInt();
                 Point startPoint = new Point(x1, y1);
                 Point endPoint = new Point(x2, y2);
-
                 Ship ship;
                 switch (shipType) {
                     case "Battleship":
@@ -70,21 +72,17 @@ public class Main {
                         break;
                     default:
                         System.out.println("Tipo de barco no válido. Intente de nuevo.");
-                        i--;
                         continue;
                 }
                 ships.add(ship);
             }
-            return ships;
-
         }
-
-        private static Point getRandomShotPoint(Random random) {
-            int x = random.nextInt(10); // Asume un tablero de 10x10
-            int y = random.nextInt(10);
-            return new Point(x, y);
-        }
+        return ships;
     }
 
-// Asegúrese de que las clases Point, Ship, Battleship, Frigate, Canoe y User estén implementadas antes de ejecutar este código.
-
+    private static Point getRandomShotPoint(Random random) {
+        int x = random.nextInt(10);
+        int y = random.nextInt(10);
+        return new Point(x, y);
+    }
+}
