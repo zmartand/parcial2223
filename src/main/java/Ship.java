@@ -1,10 +1,10 @@
 import java.awt.*;
-public class Ship {
-    private Point startPoint;
-    private Point endPoint;
-    private double size;
-    private int hits;
-    private CardinalPoints direction;
+public abstract class Ship {
+    protected Point startPoint;
+    protected Point endPoint;
+    protected double size;
+    protected int hits;
+    protected CardinalPoints direction;
 
     public Ship(Point startPoint, Point endPoint) {
         this.startPoint = startPoint;
@@ -52,7 +52,7 @@ public class Ship {
         return Math.max(Math.abs(startPoint.getX() - endPoint.getX()), Math.abs(startPoint.getY() - endPoint.getY())) + 1;
     }
 
-    private boolean isPointInsideShip(Point shotPoint) {
+    protected boolean isPointInsideShip(Point shotPoint) {
         double x = shotPoint.getX();
         double y = shotPoint.getY();
         double startX = startPoint.getX();
