@@ -1,16 +1,5 @@
-
-    /*Apartado a) En la primera tabla hash la función hash debe ser sobre el tipo de barco, en la segunda tabla la
-    función hash deberá utilizar el número del barco como clave, mientras que en la tercera el campo
-    clave de la función hash será por el nombre del barco.*/
-
-
-    /*Apartado b) Para manejar colisiones en la primera tabla, estamos usando LinkedList<ShipData> como valor.
-    El tamaño de la primera tabla es dinámico porque está utilizando un HashMap en Java*/
-    /*Apartado c) El tamaño de las segundas tablas está establecido en 15.
-    En este caso, estamos utilizando un HashMap en Java que maneja automáticamente el tamaño y las colisiones.*/
-
-    import java.util.HashMap;
-    import java.util.LinkedList;
+import java.util.HashMap;
+import java.util.LinkedList;
 
     public class ShipData {
         private String name;
@@ -60,24 +49,13 @@
             // Agregar a la tabla por nombre
             tableByName.put(ship.getName(), ship);
         }
+        /*Apartado a) En la primera tabla hash la función hash debe ser sobre el tipo de barco, en la segunda tabla la
+    función hash deberá utilizar el número del barco como clave, mientras que en la tercera el campo
+    clave de la función hash será por el nombre del barco.*/
 
-        public static void main(String[] args) {
-            ShipData storage = new ShipData("", "", 0, 0);
 
-            ShipData multiTypeShip = new ShipData("MultiType", "Type1,Type2", 1, 5);
-            String[] types = multiTypeShip.getType().split(",");
-            for (String type : types) {
-                ShipData shipWithType = new ShipData(multiTypeShip.getName(), type, multiTypeShip.getNumber(), multiTypeShip.getLevel());
-                storage.addShip(shipWithType);
-            }
-
-            ShipData ship1 = new ShipData("Ship1", "Battleship", 2, 5);
-            storage.addShip(ship1);
-
-            ShipData ship2 = new ShipData("Ship2", "Frigate", 3, 3);
-            storage.addShip(ship2);
-
-            ShipData ship3 = new ShipData("Ship3", "Canoe", 4, 1);
-            storage.addShip(ship3);
-        }
+    /*Apartado b) Para manejar colisiones en la primera tabla, estamos usando LinkedList<ShipData> como valor.
+    El tamaño de la primera tabla es dinámico porque está utilizando un HashMap en Java*/
+    /*Apartado c) El tamaño de las segundas tablas está establecido en 15.
+    En este caso, estamos utilizando un HashMap en Java que maneja automáticamente el tamaño y las colisiones.*/
     }
