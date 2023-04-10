@@ -4,6 +4,7 @@ import java.util.Scanner;
 import java.util.Random;
 
 public class Main {
+    private static ShipData storage = new ShipData("", "", 0, 0);
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
@@ -30,7 +31,6 @@ public class Main {
             Point shotPoint2 = getRandomShotPoint(random);
             user2.attack(shotPoint2, user1);
         }
-
         // Mostrar el ganador
         if (user1.isAlive() && !user2.isAlive()) {
             System.out.println("¡El Usuario 1 ha ganado!");
@@ -40,9 +40,9 @@ public class Main {
             System.out.println("¡Empate!");
         }
     }
-
     private static ArrayList<Ship> getUserShips(Scanner scanner) {
         ArrayList<Ship> ships = new ArrayList<>();
+        int shipCounter = 1;
 
         System.out.println("Tienes un máximo de 3 barcos en total, uno de cada tipo:");
         System.out.println("Battleship: 5 casillas, Frigate: 3 casillas, Canoe: 1 casilla");
@@ -60,26 +60,34 @@ public class Main {
                 Point startPoint = new Point(x1, y1);
                 Point endPoint = new Point(x2, y2);
                 Ship ship;
+                int level;
+
                 switch (shipType) {
                     case "Battleship":
                         ship = new Battleship(startPoint, endPoint);
+                        level = 5;
                         break;
                     case "Frigate":
                         ship = new Frigate(startPoint, endPoint);
+                        level = 3;
                         break;
                     case "Canoe":
                         ship = new Canoe(startPoint, endPoint);
+                        level = 1;
                         break;
                     default:
                         System.out.println("Tipo de barco no válido. Intente de nuevo.");
                         continue;
                 }
+
                 ships.add(ship);
+                String shipName = "Ship" + shipCounter;
+                storage.addShip(new ShipData(shipName, shipType, shipCounter, level));
+                shipCounter++;
             }
         }
         return ships;
     }
-
     private static Point getRandomShotPoint(Random random) {
         int x = random.nextInt(10);
         int y = random.nextInt(10);
