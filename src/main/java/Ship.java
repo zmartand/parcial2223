@@ -6,6 +6,7 @@ public abstract class Ship {
     protected double size;
     protected int hits;
     protected CardinalPoints direction;
+    private String name;
 
     public Ship(Point startPoint, Point endPoint) {
         this.startPoint = startPoint;
@@ -13,6 +14,13 @@ public abstract class Ship {
         this.direction = calculateDirection(startPoint, endPoint);
         this.size = calculateSize(startPoint, endPoint);
         this.hits = 0;
+    }
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Point getStartPoint() {
@@ -79,9 +87,6 @@ public abstract class Ship {
         return "(" + point.x + ", " + point.y + ")";
     }
     protected abstract List<Point> getCoordinates();
-
-
-
 }
 
 

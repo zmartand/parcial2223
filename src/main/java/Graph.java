@@ -145,5 +145,15 @@ class Graph {
         adjacencyList.get(node1).add(node2);
         adjacencyList.get(node2).add(node1);
     }
+
+    public void printGraph() {
+        for (String node : adjacencyList.keySet()) {
+            System.out.print(node + " -> ");
+            for (String neighbor : adjacencyList.get(node)) {
+                System.out.print(neighbor + " ");
+            }
+            System.out.println();
+        }
+    }
 }
 

@@ -19,6 +19,14 @@ public class Main {
         // Crear usuarios del juego
         User user1 = new User(user1Ships);
         User user2 = new User(user2Ships);
+        // Crear grafo de relaciones entre barcos
+        Graph graph = new Graph();
+        for (Ship ship : user1Ships) {
+            graph.addNode(ship.getName());
+        }
+        for (Ship ship : user2Ships) {
+            graph.addNode(ship.getName());
+        }
 
         // Comenzar el juego
         Random random = new Random();
