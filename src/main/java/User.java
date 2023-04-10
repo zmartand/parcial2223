@@ -5,6 +5,7 @@ import java.util.List;
 public class User {
     private boolean alive;
     private List<Ship> ships;
+    private Graph shipGraph;
 
     public User(List<Ship> ships) {
         if (ships == null || ships.size() < 1) {
@@ -12,6 +13,10 @@ public class User {
         }
         this.ships = new ArrayList<>(ships);
         this.alive = true;
+        this.shipGraph = new Graph();
+        for (Ship ship : ships) {
+            ship.addToGraph(shipGraph);
+        }
     }
 
     public boolean isAlive() {
@@ -37,6 +42,10 @@ public class User {
         if (ships.isEmpty()) {
             die();
         }
+    }
+    public void printShipGraph() {
+        System.out.println("Grafo de barcos:");
+        shipGraph.printGraph();
     }
 }
 

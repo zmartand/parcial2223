@@ -1,4 +1,6 @@
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Frigate extends Ship {
     private static final int SIZE = 3;
@@ -8,6 +10,12 @@ public class Frigate extends Ship {
         if (getSize() != SIZE) {
             throw new IllegalArgumentException("El tamaño de la fragata debe ser 3.");
         }
+    }
+    @Override
+    protected java.util.List<Point> getCoordinates() {
+        List<Point> coordinates = new ArrayList<>();
+        // Agrega las coordenadas del barco a la lista 'coordinates'
+        return  coordinates;
     }
 }
 

@@ -1,4 +1,5 @@
 import java.awt.*;
+import java.util.List;
 public abstract class Ship {
     protected Point startPoint;
     protected Point endPoint;
@@ -61,6 +62,26 @@ public abstract class Ship {
         double endY = endPoint.getY();
         return (x >= startX && x <= endX && y >= startY && y <= endY);
     }
+    public void addToGraph(Graph graph) {
+        List<Point> coordinates = getCoordinates();
+        for (Point coordinate : coordinates) {
+            String node = pointToNode(coordinate);
+            graph.addNode(node);
+        }
+
+        for (int i = 0; i < coordinates.size() - 1; i++) {
+            String nodeA = pointToNode(coordinates.get(i));
+            String nodeB = pointToNode(coordinates.get(i + 1));
+            graph.addEdge(nodeA, nodeB);
+        }
+    }
+    protected String pointToNode(Point point) {
+        return "(" + point.x + ", " + point.y + ")";
+    }
+    protected abstract List<Point> getCoordinates();
+
+
+
 }
 
 
