@@ -8,12 +8,12 @@ public abstract class Ship {
     protected CardinalPoints direction;
     private String name;
 
-    public Ship(Point startPoint, Point endPoint) {
+    public Ship(Point startPoint, CardinalPoints direction, int size) {
         this.startPoint = startPoint;
-        this.endPoint = endPoint;
-        this.direction = calculateDirection(startPoint, endPoint);
-        this.size = calculateSize(startPoint, endPoint);
+        this.direction = direction;
+        this.size = size;
         this.hits = 0;
+        this.endPoint = calculateEndPoint(startPoint, direction, size - 1);
     }
     public String getName() {
         return name;
@@ -82,6 +82,31 @@ public abstract class Ship {
             String nodeB = pointToNode(coordinates.get(i + 1));
             graph.addEdge(nodeA, nodeB);
         }
+    }
+    private Point calculateEndPoint(Point startPoint, CardinalPoints direction, int length) {
+        int x = (int) startPoint.getX();
+        int y = (int) startPoint.getY();
+        switch (direction) {
+            case NORTH:
+                y -= length;
+                break;
+            case SOUTH:
+                y += length;
+                break;
+            case EAST:
+                x += length;
+                break;
+            case WEST:
+                x -= length;
+                break;
+        }
+
+        // Comprobar que el barco no se salga de la matriz
+        if (x < 0 || x > 9 || y < 0 || y > 9) {
+            throw new IllegalArgumentException("Las coordenadas del barco están fuera de la matriz.");
+        }
+
+        return new Point(x, y);
     }
     protected String pointToNode(Point point) {
         return "(" + point.x + ", " + point.y + ")";
