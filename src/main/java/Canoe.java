@@ -14,8 +14,8 @@ public class Canoe extends Ship {
     @Override
     protected java.util.List<Point> getCoordinates() {
         List<Point> coordinates = new ArrayList<>();
-        coordinates.add(startPoint); // Agrega el punto de inicio a la lista 'coordinates'
-        return coordinates;
+        // Agrega las coordenadas del barco a la lista 'coordinates'
+        return  coordinates;
     }
 }
 

@@ -60,7 +60,7 @@ public class Main {
             if (shipType.equals("Canoe")) {
                 System.out.println("Punto de inicio del " + shipType + " en formato x y ej(3 2), o 'no' si no deseas este tipo de barco:");
             } else {
-                System.out.println("Punto inicial y punto final del " + shipType + " en formato x1 y1 x2 y2 ej(3 1 3 6), o 'no' si no deseas este tipo de barco:");
+                System.out.println("Punto inicial y punto final del " + shipType + " en formato x1 y1 x2 y2 ej(3 2 2 6), o 'no' si no deseas este tipo de barco:");
             }
 
             String input = scanner.next();

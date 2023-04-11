@@ -3,7 +3,7 @@ import java.util.List;
 public abstract class Ship {
     protected Point startPoint;
     protected Point endPoint;
-    protected double size;
+    protected int size;
     protected int hits;
     protected CardinalPoints direction;
     private String name;
@@ -15,7 +15,7 @@ public abstract class Ship {
 
         this.startPoint = startPoint;
         this.endPoint = endPoint;
-        this.size = calculateSize();
+        this.size = calculateSize() + 1;
         this.hits = 0;
         System.out.println("Tamaño del barco: " + size);
     }
