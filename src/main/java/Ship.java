@@ -8,12 +8,30 @@ public abstract class Ship {
     protected CardinalPoints direction;
     private String name;
 
-    public Ship(Point startPoint, CardinalPoints direction, int size) {
+    public Ship(Point startPoint, Point endPoint) {
+
+        if (!isStraight(startPoint, endPoint))
+            throw new IllegalArgumentException("Las coordenadas indicadas no forman una linea recta.");
+
         this.startPoint = startPoint;
-        this.direction = direction;
-        this.size = size;
+        this.endPoint = endPoint;
+        this.size = calculateSize();
         this.hits = 0;
-        this.endPoint = calculateEndPoint(startPoint, direction, size - 1);
+        System.out.println("Tamaño del barco: " + size);
+    }
+
+    private boolean isStraight(Point startPoint, Point endPoint){
+        return startPoint.getX() == endPoint.getX() || startPoint.getY() == endPoint.getY();
+    }
+
+    /**
+     * Calcula el tamaño del barco dada su posición de inicio y fin.
+     * */
+    private int calculateSize(){
+        int size = (int) (startPoint.getX() - endPoint.getX());
+        if (size != 0)
+            return Math.abs(size);
+        return Math.abs((int)(startPoint.getY() - endPoint.getY()));
     }
     public String getName() {
         return name;
@@ -83,37 +101,8 @@ public abstract class Ship {
             graph.addEdge(nodeA, nodeB);
         }
     }
-    private Point calculateEndPoint(Point startPoint, CardinalPoints direction, int length) {
-        int x = (int) startPoint.getX();
-        int y = (int) startPoint.getY();
-        switch (direction) {
-            case NORTH:
-                y -= length;
-                break;
-            case SOUTH:
-                y += length;
-                break;
-            case EAST:
-                x += length;
-                break;
-            case WEST:
-                x -= length;
-                break;
-        }
-
-        // Comprobar que el barco no se salga de la matriz
-        if (x < 0 || x > 9 || y < 0 || y > 9) {
-            throw new IllegalArgumentException("Las coordenadas del barco están fuera de la matriz.");
-        }
-
-        return new Point(x, y);
-    }
     protected String pointToNode(Point point) {
         return "(" + point.x + ", " + point.y + ")";
     }
     protected abstract List<Point> getCoordinates();
 }
-
-
-
-

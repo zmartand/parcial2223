@@ -57,35 +57,41 @@ public class Main {
         System.out.println("Ingresa las coordenadas de inicio y fin para cada barco o escribe 'no' si no deseas ese tipo de barco.");
 
         for (String shipType : new String[]{"Battleship", "Frigate", "Canoe"}) {
-            System.out.println("Punto inicial y punto final del " + shipType + " en formato x1 y1 x2 y2 ej(3 2 3 6), o 'no' si no deseas este tipo de barco:");
+            if (shipType.equals("Canoe")) {
+                System.out.println("Punto de inicio del " + shipType + " en formato x y ej(3 2), o 'no' si no deseas este tipo de barco:");
+            } else {
+                System.out.println("Punto inicial y punto final del " + shipType + " en formato x1 y1 x2 y2 ej(3 1 3 6), o 'no' si no deseas este tipo de barco:");
+            }
 
             String input = scanner.next();
             if (!input.equalsIgnoreCase("no")) {
                 int x1 = Integer.parseInt(input);
                 int y1 = scanner.nextInt();
-                int x2 = scanner.nextInt();
-                int y2 = scanner.nextInt();
                 Point startPoint = new Point(x1, y1);
-                Point endPoint = new Point(x2, y2);
                 Ship ship;
                 int level;
 
-                switch (shipType) {
-                    case "Battleship":
-                        ship = new Battleship(startPoint, endPoint);
-                        level = 5;
-                        break;
-                    case "Frigate":
-                        ship = new Frigate(startPoint, endPoint);
-                        level = 3;
-                        break;
-                    case "Canoe":
-                        ship = new Canoe(startPoint, endPoint);
-                        level = 1;
-                        break;
-                    default:
-                        System.out.println("Tipo de barco no válido. Intente de nuevo.");
-                        continue;
+                if (shipType.equals("Canoe")) {
+                    ship = new Canoe(startPoint);
+                    level = 1;
+                } else {
+                    int x2 = scanner.nextInt();
+                    int y2 = scanner.nextInt();
+                    Point endPoint = new Point(x2, y2);
+
+                    switch (shipType) {
+                        case "Battleship":
+                            ship = new Battleship(startPoint, endPoint);
+                            level = 5;
+                            break;
+                        case "Frigate":
+                            ship = new Frigate(startPoint, endPoint);
+                            level = 3;
+                            break;
+                        default:
+                            System.out.println("Tipo de barco no válido. Intente de nuevo.");
+                            continue;
+                    }
                 }
 
                 ships.add(ship);
@@ -96,6 +102,7 @@ public class Main {
         }
         return ships;
     }
+
     private static Point getRandomShotPoint(Random random) {
         int x = random.nextInt(10);
         int y = random.nextInt(10);
