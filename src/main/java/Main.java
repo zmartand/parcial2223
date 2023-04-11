@@ -57,7 +57,7 @@ public class Main {
         System.out.println("Ingresa las coordenadas de inicio y fin para cada barco o escribe 'no' si no deseas ese tipo de barco.");
 
         for (String shipType : new String[]{"Battleship", "Frigate", "Canoe"}) {
-            System.out.println("Punto inicial y punto final del " + shipType + " en formato x1 y1 x2 y2 ej(3 2 2 6), o 'no' si no deseas este tipo de barco:");
+            System.out.println("Punto inicial y punto final del " + shipType + " en formato x1 y1 x2 y2 ej(3 2 3 6), o 'no' si no deseas este tipo de barco:");
 
             String input = scanner.next();
             if (!input.equalsIgnoreCase("no")) {
