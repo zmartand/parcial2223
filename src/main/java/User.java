@@ -20,15 +20,33 @@ public class User {
     }
 
     public boolean isAlive() {
-        return alive;
+        for (Ship ship : ships) {
+            if (!ship.isSunk()) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public void die() {
         this.alive = false;
     }
 
-    public void attack(Point shotPoint, User user) {
-        user.getShot(shotPoint);
+    public boolean attack(Point shotPoint, User user) {
+        for (Ship ship : user.ships) {
+            if (ship.isPointInsideShip(shotPoint)) {
+                ship.getShot(shotPoint);
+                if (ship.isSunk()) {
+                    user.ships.remove(ship);
+                    if (user.ships.isEmpty()) {
+                        user.die();
+                    }
+                    return true;
+                }
+                break;
+            }
+        }
+        return false;
     }
 
     public void getShot(Point shotPoint) {

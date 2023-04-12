@@ -101,6 +101,7 @@ public abstract class Ship {
             graph.addEdge(nodeA, nodeB);
         }
     }
+
     protected String pointToNode(Point point) {
         return "(" + point.x + ", " + point.y + ")";
     }
