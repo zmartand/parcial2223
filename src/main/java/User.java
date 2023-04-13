@@ -42,13 +42,17 @@ public class User {
                         user.die();
                         return true;
                     }
+                    System.out.println("¡Has hundido un barco!");
                     return true;
+                } else {
+                    System.out.println("¡Le has dado, pero el barco aún no se ha hundido!");
+                    return false;
                 }
-                break;
             }
         }
         return false;
     }
+
 
     public void getShot(Point shotPoint) {
         for (Ship ship : ships) {

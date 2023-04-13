@@ -79,15 +79,16 @@ public abstract class Ship {
         return Math.max(Math.abs(startPoint.getX() - endPoint.getX()), Math.abs(startPoint.getY() - endPoint.getY())) + 1;
     }
 
-    protected boolean isPointInsideShip(Point shotPoint) {
-        double x = shotPoint.getX();
-        double y = shotPoint.getY();
-        double startX = startPoint.getX();
-        double startY = startPoint.getY();
-        double endX = endPoint.getX();
-        double endY = endPoint.getY();
-        return (x >= startX && x <= endX && y >= startY && y <= endY);
+    public boolean isPointInsideShip(Point shotPoint) {
+        int shotX = shotPoint.x;
+        int shotY = shotPoint.y;
+
+        boolean withinX = (shotX >= startPoint.x && shotX <= endPoint.x) || (shotX >= endPoint.x && shotX <= startPoint.x);
+        boolean withinY = (shotY >= startPoint.y && shotY <= endPoint.y) || (shotY >= endPoint.y && shotY <= startPoint.y);
+
+        return withinX && withinY;
     }
+
     public void addToGraph(Graph graph) {
         List<Point> coordinates = getCoordinates();
         for (Point coordinate : coordinates) {
