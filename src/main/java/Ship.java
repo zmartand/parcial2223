@@ -58,13 +58,18 @@ public abstract class Ship {
     }
 
     public boolean isSunk() {
-        return hits == size;
+        int shipSize = Math.max(Math.abs(endPoint.x - startPoint.x), Math.abs(endPoint.y - startPoint.y)) + 1;
+        return hits == shipSize;
     }
+
 
     public void getShot(Point shotPoint) {
         if (isPointInsideShip(shotPoint)) {
             hits++;
         }
+    }
+    public void registerHit() {
+        hits++;
     }
 
     private CardinalPoints calculateDirection(Point startPoint, Point endPoint) {

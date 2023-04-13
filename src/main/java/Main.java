@@ -23,11 +23,11 @@ public class Main {
             // Ataque del Usuario 1 al Usuario 2
             System.out.println("Turno del Usuario 1:");
             Point shotPoint1 = getUserShotPoint(scanner);
-            boolean sunk1 = user1.attack(shotPoint1, user2);
-            if (sunk1) {
+            boolean hit1 = user1.attack(shotPoint1.x, shotPoint1.y);
+            if (hit1) {
                 System.out.println("¡El Usuario 1 ha hundido un barco del Usuario 2!");
             } else {
-                System.out.println("El Usuario 1 ha fallado.");
+                System.out.println("El Usuario 1 ha fallado en hundir un barco.");
             }
 
             // Comprobar si el Usuario 2 sigue en juego
@@ -38,11 +38,11 @@ public class Main {
             // Ataque del Usuario 2 al Usuario 1
             System.out.println("Turno del Usuario 2:");
             Point shotPoint2 = getUserShotPoint(scanner);
-            boolean sunk2 = user2.attack(shotPoint2, user1);
-            if (sunk2) {
+            boolean hit2 = user2.attack(shotPoint2.x, shotPoint2.y);
+            if (hit2) {
                 System.out.println("¡El Usuario 2 ha hundido un barco del Usuario 1!");
             } else {
-                System.out.println("El Usuario 2 ha fallado.");
+                System.out.println("El Usuario 2 ha fallado en hundir un barco.");
             }
         }
 

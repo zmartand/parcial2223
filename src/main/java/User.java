@@ -32,26 +32,22 @@ public class User {
         this.alive = false;
     }
 
-    public boolean attack(Point shotPoint, User user) {
-        for (Ship ship : user.ships) {
+    public boolean attack(int x, int y) {
+        Point shotPoint = new Point(x, y);
+        for (Ship ship : ships) {
             if (ship.isPointInsideShip(shotPoint)) {
-                ship.getShot(shotPoint);
+                ship.registerHit();
                 if (ship.isSunk()) {
-                    user.ships.remove(ship);
-                    if (user.ships.isEmpty()) {
-                        user.die();
-                        return true;
-                    }
                     System.out.println("¡Has hundido un barco!");
-                    return true;
                 } else {
                     System.out.println("¡Le has dado, pero el barco aún no se ha hundido!");
-                    return false;
                 }
+                return true;
             }
         }
         return false;
     }
+
 
 
     public void getShot(Point shotPoint) {
