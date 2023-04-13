@@ -40,6 +40,7 @@ public class User {
                     user.ships.remove(ship);
                     if (user.ships.isEmpty()) {
                         user.die();
+                        return true;
                     }
                     return true;
                 }
@@ -61,6 +62,7 @@ public class User {
             die();
         }
     }
+
     public void printShipGraph() {
         System.out.println("Grafo de barcos:");
         shipGraph.printGraph();
