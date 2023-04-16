@@ -58,9 +58,9 @@ public abstract class Ship {
     }
 
     public boolean isSunk() {
-        int shipSize = Math.max(Math.abs(endPoint.x - startPoint.x), Math.abs(endPoint.y - startPoint.y)) + 1;
-        return hits == shipSize;
+        return hits == getSize();
     }
+
 
 
     public void getShot(Point shotPoint) {
@@ -71,6 +71,7 @@ public abstract class Ship {
     public void registerHit() {
         hits++;
     }
+
 
     private CardinalPoints calculateDirection(Point startPoint, Point endPoint) {
         if (startPoint.getX() == endPoint.getX()) {

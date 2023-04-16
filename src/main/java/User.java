@@ -34,19 +34,22 @@ public class User {
 
     public boolean attack(int x, int y) {
         Point shotPoint = new Point(x, y);
+        boolean hit = false;
         for (Ship ship : ships) {
             if (ship.isPointInsideShip(shotPoint)) {
                 ship.registerHit();
+                hit = true;
                 if (ship.isSunk()) {
                     System.out.println("¡Has hundido un barco!");
                 } else {
                     System.out.println("¡Le has dado, pero el barco aún no se ha hundido!");
                 }
-                return true;
             }
         }
-        return false;
+        return hit;
     }
+
+
 
 
 
