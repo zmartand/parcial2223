@@ -48,6 +48,15 @@ public class User {
         }
         return hit;
     }
+    public boolean allShipsSunk() {
+        for (Ship ship : ships) {
+            if (!ship.isSunk()) {
+                return false;
+            }
+        }
+        return true;
+    }
+
 
 
 
