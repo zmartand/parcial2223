@@ -63,6 +63,7 @@ public abstract class Ship {
 
 
 
+
     public void getShot(Point shotPoint) {
         if (isPointInsideShip(shotPoint)) {
             hits++;
@@ -111,4 +112,6 @@ public abstract class Ship {
         return "(" + point.x + ", " + point.y + ")";
     }
     protected abstract List<Point> getCoordinates();
+    public abstract boolean isValidSize(Point startPoint, Point endPoint);
+
 }
