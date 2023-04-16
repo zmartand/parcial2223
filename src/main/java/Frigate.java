@@ -14,7 +14,6 @@ public class Frigate extends Ship {
     @Override
     protected java.util.List<Point> getCoordinates() {
         List<Point> coordinates = new ArrayList<>();
-        // Agrega las coordenadas del barco a la lista 'coordinates'
         return  coordinates;
     }
 }
