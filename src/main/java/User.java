@@ -19,14 +19,14 @@ public class User {
         }
     }
 
-    public boolean isAlive() {
+    /*public boolean isAlive() {
         for (Ship ship : ships) {
             if (!ship.isSunk()) {
                 return true;
             }
         }
         return false;
-    }
+    }*/
 
     public void die() {
         this.alive = false;
@@ -55,29 +55,6 @@ public class User {
             }
         }
         return true;
-    }
-
-
-
-
-
-
-    public void getShot(Point shotPoint) {
-        for (Ship ship : ships) {
-            ship.getShot(shotPoint);
-            if (ship.isSunk()) {
-                ships.remove(ship);
-                break;
-            }
-        }
-        if (ships.isEmpty()) {
-            die();
-        }
-    }
-
-    public void printShipGraph() {
-        System.out.println("Grafo de barcos:");
-        shipGraph.printGraph();
     }
 }
 

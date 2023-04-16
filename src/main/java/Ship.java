@@ -71,9 +71,7 @@ public abstract class Ship {
     public void registerHit() {
         hits++;
     }
-
-
-    private CardinalPoints calculateDirection(Point startPoint, Point endPoint) {
+    /*private CardinalPoints calculateDirection(Point startPoint, Point endPoint) {
         if (startPoint.getX() == endPoint.getX()) {
             return (startPoint.getY() < endPoint.getY()) ? CardinalPoints.NORTH : CardinalPoints.SOUTH;
         } else {
@@ -83,7 +81,7 @@ public abstract class Ship {
 
     private double calculateSize(Point startPoint, Point endPoint) {
         return Math.max(Math.abs(startPoint.getX() - endPoint.getX()), Math.abs(startPoint.getY() - endPoint.getY())) + 1;
-    }
+    }*/
 
     public boolean isPointInsideShip(Point shotPoint) {
         int shotX = shotPoint.x;
